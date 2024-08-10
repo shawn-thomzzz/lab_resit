@@ -1,0 +1,42 @@
+# Ignore the build directory where CMake generates build files
+/build/
+
+# Ignore CMake files generated during the build process
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ignore compiled object files
+*.o
+*.obj
+
+# Ignore compiled binaries (executables)
+*.exe
+*.out
+
+# Ignore shared libraries
+*.dll
+*.so
+*.dylib
+
+# Ignore temporary files created by editors or operating systems
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store          # macOS specific file
+Thumbs.db          # Windows specific file
+
+# Ignore Visual Studio specific directories/files (if applicable)
+.vscode/
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+
+# Ignore code coverage files (if applicable)
+*.gcda
+*.gcno
+*.gcov
+
+# Ignore any other directory or file specific to your development environment
