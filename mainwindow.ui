@@ -39,16 +39,15 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QTKWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>100</width>
-      <height>30</height>
+      <x>259</x>
+      <y>9</y>
+      <width>521</width>
+      <height>501</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -103,9 +102,10 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionOpen_2"/>
-   <addaction name="actionPrint"/>
    <addaction name="actionStart_VR"/>
    <addaction name="actionStop_VR"/>
+   <addaction name="actionHelp_2"/>
+   <addaction name="actionPrint"/>
   </widget>
   <action name="actionStart_VR">
    <property name="icon">
@@ -162,6 +162,14 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QTKWidget</class>
+   <extends>QWidget</extends>
+   <header>qtkwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

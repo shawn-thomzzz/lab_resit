@@ -102,9 +102,10 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionOpen_2"/>
-   <addaction name="actionPrint"/>
    <addaction name="actionStart_VR"/>
    <addaction name="actionStop_VR"/>
+   <addaction name="actionHelp_2"/>
+   <addaction name="actionPrint"/>
   </widget>
   <action name="actionStart_VR">
    <property name="icon">
@@ -130,7 +131,10 @@
      <normaloff>QT UI files/Icons/fileopen.png</normaloff>QT UI files/Icons/fileopen.png</iconset>
    </property>
    <property name="text">
-    <string>Open</string>
+    <string>Open File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
    </property>
   </action>
   <action name="actionSave">

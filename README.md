@@ -1,1 +1,1 @@
-# lab_resit 
+Project Aim: To create a Virtual Reality system for visualising complex engineering CAD models. Works by downloading an installer that will automatically pull in all required libraries allowing rendering, display and interactive capabilites.
