@@ -22,12 +22,12 @@
  * the VTK library which is needed.
  */
 #include <vtkSmartPointer.h>
-#include <vtkMapper.h>
+#include <vtkPolyDataMapper.h>
 #include <vtkActor.h>
 #include <vtkSTLReader.h>
 #include <vtkColor.h>
 #include <vtkSmartPointer.h>
-#include <vtkPolyData.h> // Added to handle polydata
+#include <vtkPolyData.h>
 
 class ModelPart {
 public:
@@ -142,8 +142,9 @@ private:
 	 * commented out for now but will be used later
 	 */
     vtkSmartPointer<vtkSTLReader>               file;               /**< Datafile from which part loaded */
-    vtkSmartPointer<vtkMapper>                  mapper;             /**< Mapper for rendering */
-    vtkSmartPointer<vtkActor>                   actor;              /**< Actor for rendering */
+    vtkSmartPointer<vtkPolyDataMapper>          mapper;             /**< Mapper for rendering */
+    vtkSmartPointer<vtkActor>                   actor;    /**< Actor for rendering */
+    vtkSmartPointer<vtkPolyData>                polyData;
     vtkColor3<unsigned char>                    colour;             /**< User defineable colour */
 };  
 

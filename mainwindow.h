@@ -39,10 +39,10 @@ private:
     //vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
     //VRRenderThread* renderThread;
 
-
+public slots:
+    void openFile();
 private slots:
     void editSelectedItem();
     void addNewItem();
-    void openDirectory();
 };
 #endif // MAINWINDOW_H
