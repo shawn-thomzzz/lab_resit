@@ -11,6 +11,7 @@
 
 #include "ModelPartList.h"
 #include "VRRenderThread.h"
+#include "vtkwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,6 +34,7 @@ public:
 private:
     Ui::MainWindow *ui;
     ModelPartList* partList;
+    VTKWidget *vtkWidget;
     //vtkSmartPointer<vtkRenderer> renderer;
     //vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
     //VRRenderThread* renderThread;

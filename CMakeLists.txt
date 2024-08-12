@@ -47,3 +47,6 @@ add_custom_command(	TARGET VRBindings PRE_BUILD
 
 # Specify that VRBaseStation requires VRBindings to be built
 add_dependencies( VRBaseStation VRBindings )
+
+qt_add_resources(RESOURCES resources.qrc)
+add_executable(myapp main.cpp ${RESOURCES})

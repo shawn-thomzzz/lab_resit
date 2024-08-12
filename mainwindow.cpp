@@ -28,6 +28,7 @@
 #include <vtkNew.h>
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkSTLReader.h>
+#include <vtkwidget.h>
 
 
 
@@ -37,6 +38,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
+
+    /* Initialize VTKWidget */
+    vtkWidget = new VTKWidget(this); // Create a new VTKWidget instance
+
+    /* Set the VTKWidget as the central widget or place it in a layout */
+    setCentralWidget(vtkWidget); // This will set the VTKWidget as the main display area
+
+    
 
 
     /* Link TreeView to Model */
@@ -54,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete vtkWidget; // Clean up VTKWidget
 }
 
 void MainWindow::addNewItem() {
