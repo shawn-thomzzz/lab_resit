@@ -20,7 +20,7 @@
 
 
 ModelPart::ModelPart(const QList<QVariant>& data, ModelPart* parent )
-    : m_itemData(data), m_parentItem(parent) {
+    : m_itemData(data), m_parentItem(parent), isVisible(true) {
 
     /* You probably want to give the item a default colour */
     colour.Set(255,255,255);
@@ -199,6 +199,11 @@ vtkActor* ModelPart::getNewActor() {
      newActor->SetProperty(actor->GetProperty());
 
      return newActor;
+
+vtkSmartPointer<vtkPolyData> ModelPart::getPolyData() {
+    // Return the polydata associated with this model part
+    return stlReader->GetOutput();
+}
     
 
     /* The new vtkActor pointer must be returned here */

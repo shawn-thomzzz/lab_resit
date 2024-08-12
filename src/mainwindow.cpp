@@ -39,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 	ui->setupUi(this);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
+    connect(ui->actionOpen_Directory, &QAction::triggered, this, &MainWindow::openDirectory);  // Connect to the new action
+
 
     /* Initialize VTKWidget */
     vtkWidget = new VTKWidget(this); // Create a new VTKWidget instance
@@ -151,6 +153,40 @@ void MainWindow::openFile() {
     vtkWidget->addActor(newPart);
     vtkWidget->renderModel();
 }
+
+void MainWindow::openDirectory() {
+    // Open a directory selection dialog
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "",
+                                                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    if (dir.isEmpty()) {
+        return; // If no directory was selected, return
+    }
+
+    QDir directory(dir);
+    QStringList filters;
+    filters << "*.stl";
+    
+    QDirIterator it(dir, filters, QDir::Files, QDirIterator::Subdirectories);
+    QModelIndex root = partList->index(0, 0, QModelIndex());
+
+    while (it.hasNext()) {
+        QString filePath = it.next();
+        QFileInfo fileInfo(filePath);
+
+        // Add the STL file to the treeview
+        QModelIndex fileIndex = partList->appendChild(root, { QVariant(fileInfo.fileName()), QVariant("true") });
+
+        // Create a ModelPart and load the STL file
+        ModelPart* newPart = new ModelPart({ QVariant(fileInfo.fileName()) });
+        newPart->loadSTL(filePath);
+
+        // Add the ModelPart to the VTKWidget and render it
+        vtkWidget->addActor(newPart);
+    }
+
+    vtkWidget->renderModel(); // Render all the added parts
+}
+
 
 /* These two functions can be used to add all items in the tree view to the VR view */
 void MainWindow::addActorsToVR() {

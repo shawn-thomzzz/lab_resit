@@ -66,6 +66,7 @@
     </property>
     <addaction name="actionOpen_2"/>
     <addaction name="actionSave"/>
+    <addaction name="actionOpen_Directory"/>
    </widget>
    <widget class="QMenu" name="menuVR">
     <property name="title">
@@ -162,6 +163,15 @@
    </property>
    <property name="text">
     <string>Print</string>
+   </property>
+  </action>
+  <action name="actionOpen_Directory">
+   <property name="icon">
+    <iconset>
+     <normaloff>Icons/fileopen.png</normaloff>Icons/fileopen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Directory</string>
    </property>
   </action>
  </widget>
